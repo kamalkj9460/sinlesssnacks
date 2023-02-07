@@ -7,7 +7,7 @@
   {% assign showbox = true %}
 {% endif %}
 {%- if showbox -%}
-{%- style -%}
+<style>
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -19,9 +19,9 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-{%- endstyle -%}
+</style>
 <section class="timeline-section section-{{ section.id }}-padding" style="background-color: {{section.settings.bg_color}};">
-  {% if section.settings.image != blank %}<img src="{{ section.settings.image | img_url:'original'}}" alt="" class="abs_img imgmarsh_compare" />{% endif %}
+  {% if section.settings.image != blank %}<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ section.settings.image | img_url:'original'}}" alt="" class="abs_img imgmarsh_compare" />{% endif %}
 	<div class="custom-page-width">
 
  		<div class="grid justify-content-center">
@@ -38,7 +38,7 @@
 				<div class="token-item">
                     <div class="col"><h2 class="title">{{ block.settings.heading}}</h2></div>
 					<div class="col">
-						<img src="{{ block.settings.image | img_url:'original'}}" alt="">
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ block.settings.image | img_url:'original'}}" alt="">
 					</div>
 					<div class="col">
 						<div class="token-content-wrap">
@@ -179,8 +179,3 @@
   }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

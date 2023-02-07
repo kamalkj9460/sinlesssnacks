@@ -1,5 +1,3 @@
-
-        <!-- candyrack-script -->
-        {{ 'candyrack-config.js' | asset_url | script_tag }}
-        <!-- / candyrack-script -->
-        
+<!-- candyrack-script -->
+<script data-src="{{ 'candyrack-config.js' | asset_url }}" type="lazyload_int"></script>        
+<!-- / candyrack-script -->

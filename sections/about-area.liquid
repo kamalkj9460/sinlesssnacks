@@ -20,10 +20,10 @@
       <div class="about-area-width">
         <div class="cosmok-about-img">
           {% if section.settings.main_image != blank %}
-            <img class="main-img" src="{{ section.settings.main_image | img_url: '1048x'}}" alt="">
+            <img class="main-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ section.settings.main_image | img_url: '1048x'}}" alt="">
           {% endif %}
           {% if section.settings.guarantee_img != blank %}
-            <img class="guarantee-img" src="{{ section.settings.guarantee_img | img_url: '1048x'}}" alt="">
+            <img class="guarantee-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ section.settings.guarantee_img | img_url: '1048x'}}" alt="">
           {% endif %}
         </div>
       </div>
@@ -66,7 +66,7 @@
           {% endif %}
           {% endif %}
           {% if template contains 'about' %}
-          <img src="https://cdn.shopify.com/s/files/1/1633/5925/files/signature-black_small_ab395b64-fe31-423b-b8ba-6eb727424161.png?v=1649681652" alt="" />
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="https://cdn.shopify.com/s/files/1/1633/5925/files/signature-black_small_ab395b64-fe31-423b-b8ba-6eb727424161.png?v=1649681652" alt="" />
           {% endif %}
           <div class="cstm_btn">
            {% if section.settings.btn_link1 and section.settings.btn1 != blank %}
@@ -81,10 +81,10 @@
   <div class="cos-about-shape">
     <ul>
       {% if section.settings.prod_shape_1 != blank %}
-        <li><img src="{{ section.settings.prod_shape_1 | img_url: '1048x'}}" alt=""></li>
+        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ section.settings.prod_shape_1 | img_url: '1048x'}}" alt=""></li>
       {% endif %}
       {% if section.settings.prod_shape_2 != blank %}
-        <li><img src="{{ section.settings.prod_shape_2 | img_url: '1048x'}}" alt=""></li>
+        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ section.settings.prod_shape_2 | img_url: '1048x'}}" alt=""></li>
       {% endif %}
     </ul>
   </div>

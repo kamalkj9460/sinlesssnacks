@@ -1,10 +1,10 @@
 <div class="featured_background">  
   <div class="image">
     {% if section.settings.background_image %} 
-      <img class="small-hide" src="{{ section.settings.background_image | img_url: '2048x'}}" alt="" />
+      <img class="small-hide" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ section.settings.background_image | img_url: '2048x'}}" alt="" />
     {% endif %}
     {% if section.settings.background_image1 %} 
-      <img class="medium-hide large-up-hide" src="{{ section.settings.background_image1 | img_url: '1048x'}}" alt="" />
+      <img class="medium-hide large-up-hide" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ section.settings.background_image1 | img_url: '1048x'}}" alt="" />
     {% endif %}
     <div class="absoluted_txt">
       <div class="cstm_txt">

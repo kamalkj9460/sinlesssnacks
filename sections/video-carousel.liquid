@@ -44,30 +44,30 @@
   <div class="video-carousel-inner">
     {% if product.metafields.custom.product_video != blank %}
     <div class="video-container"> 
-        <video class="ply_pause" width="100%" height=100%" controls>
-          <source src="{{ product.metafields.custom.product_video | file_url }}" type="video/mp4">
-        </video>
+        <videolazy class="ply_pause" width="100%" height="100%" data-class="LazyLoad" controls>
+          <source data-src="{{ product.metafields.custom.product_video | file_url }}" type="video/mp4">
+        </videolazy>
     </div>
     {% endif %}
     {% if product.metafields.custom.product_video_2 != blank %}
     <div class="video-container"> 
-        <video class="ply_pause" width="100%" height=100%" controls>
-          <source src="{{ product.metafields.custom.product_video_2 | file_url }}" type="video/mp4">
-        </video>
+        <videolazy class="ply_pause" width="100%" height="100%" data-class="LazyLoad" controls>
+          <source data-src="{{ product.metafields.custom.product_video_2 | file_url }}" type="video/mp4">
+        </videolazy>
     </div>
     {% endif %}
     {% if product.metafields.custom.product_video_3 != blank %}
     <div class="video-container"> 
-        <video class="ply_pause" width="100%" height=100%" controls>
-          <source src="{{ product.metafields.custom.product_video_3 | file_url }}" type="video/mp4">
-        </video>
+        <videolazy class="ply_pause" width="100%" height="100%" data-class="LazyLoad" controls>
+          <source data-src="{{ product.metafields.custom.product_video_3 | file_url }}" type="video/mp4">
+        </videolazy>
     </div>
     {% endif %}
     {% if product.metafields.custom.product_video_4 != blank %}
     <div class="video-container"> 
-        <video class="ply_pause" width="100%" height=100%" controls>
-          <source src="{{ product.metafields.custom.product_video_4 | file_url }}" type="video/mp4">
-        </video>
+        <videolazy class="ply_pause" width="100%" height="100%" data-class="LazyLoad" controls>
+          <source data-src="{{ product.metafields.custom.product_video_4 | file_url }}" type="video/mp4">
+        </videolazy>
     </div>
     {% endif %}
   </div>
@@ -92,8 +92,3 @@
   }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

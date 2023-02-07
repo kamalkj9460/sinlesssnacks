@@ -18,9 +18,9 @@ video#videoBG {
 
 <!-- Video -area -->
 	<section class="video-area video-bg slider-item slider-bg">
-		<video id="videoBG" autoplay muted loop>
-			<source src="{{section.settings.video}}" type="video/mp4">
-		</video>
+		<videolazy id="videoBG" autoplay muted loop data-class="LazyLoad">
+			<source data-src="{{section.settings.video}}" type="video/mp4">
+        </videolazy>
 
 		<div class="custom-page-width">
 			<div class="grid center">
@@ -32,9 +32,9 @@ video#videoBG {
                       <a class="popup-modal popup-video" href="#test-modal"><i class="fa fa-play"></i></a>
 
                       <div id="test-modal" class="white-popup-block mfp-hide">
-                          <video id="videoBG" controls autoplay muted style="width:900px; height:500px; margin: 0 auto; z-index: 2;">
-                                  <source src="{{section.settings.video}}" type="video/mp4">
-                              </video>
+                          <videolazy id="videoBG" controls autoplay muted style="width:900px; height:500px; margin: 0 auto; z-index: 2;" data-class="LazyLoad">
+                                  <source data-src="{{section.settings.video}}" type="video/mp4">
+                          </videolazy>
                           <p><a class="popup-modal-dismiss" href="#">×</a></p>
                       </div>
 					</div>

@@ -1,8 +1,7 @@
 <!-- Era Of Ecom App Hook start -->
-<link rel="stylesheet" type="text/css" href="https://cartroids.eraofecom.org/hook/hook.css">
-<script type="text/javascript" src="https://cartroids.eraofecom.org/hook/hook.js" async></script>
+<link rel="stylesheet" type="text/css" data-href="https://cartroids.eraofecom.org/hook/hook.css">
+<script type="lazyload_int" data-src="https://cartroids.eraofecom.org/hook/hook.js"></script>
 <!-- Era Of Ecom App Hook end -->
-
 <!-- collections data start here  updated now-->
 {% if template contains "product" %}
 <meta name="ca:collections" content="{{ product.collections | map: "title" | join: ", " | escape }}">

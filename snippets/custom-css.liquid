@@ -1,0 +1,32 @@
+<style>
+.responsive:not(.slick-slider) {
+    display: flex;
+}
+
+@media screen and (min-width: 1200px) {
+.responsive:not(.slick-slider) .col-md-2:nth-child(n+7) {
+    display: none;
+}
+.responsive:not(.slick-slider) .col-md-2 {
+    width: 16.667%;
+}}
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+.responsive:not(.slick-slider) .col-md-2:nth-child(n+5) {
+    display: none;
+}
+.responsive:not(.slick-slider) .col-md-2 {
+    width: 25%;
+}}
+@media screen and (max-width: 599px) {
+.responsive:not(.slick-slider) .col-md-2:nth-child(n+3) {
+    display: none;
+}
+.responsive:not(.slick-slider) .col-md-2 {
+    width: 50%;
+}}
+
+.link--text{color:rgb(var(--color-foreground))}
+.footer-block__details-content .mail_call li span svg path {
+    fill: #000!important;
+}
+</style>

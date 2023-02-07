@@ -134,7 +134,7 @@
             {% for block in section.blocks %}
             <div class="icon-marquee__icon features-icon" data-icon>
               {% if block.settings.image != blank %}
-                <img src="{{block.settings.image | img_url:'100x'}}" alt="">                
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{block.settings.image | img_url:'100x'}}" alt="">                
               {% else %}
                 {{ block.settings.svg }}
               {% endif %}
@@ -238,8 +238,3 @@
   }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
