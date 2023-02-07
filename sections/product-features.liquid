@@ -1,0 +1,110 @@
+<style>
+  .product-features_inner {
+    display: flex;
+    flex-flow: row wrap;
+}
+  .product-features_content {
+    width: 50%;
+}
+  .product-features_content h2, .product-features_content p {
+    color: #fff;
+  }
+  .product-features {
+    background-position: right;
+}
+.custom-page-width {
+    max-width: 1000px;
+}
+</style>
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+{% if section.settings.bgimage != blank %}
+<div class="product-features" style="{% if section.settings.bgimage != blank %}background-image:url({{ section.settings.bgimage | img_url:'2048x' }}){% endif %}">
+  <div class="product-features-wrap custom-page-width section-{{ section.id }}-padding">
+    <div class="product-features_inner">
+      {% for block in section.blocks %}
+      <div class="product-features_content page-width">
+        {% if block.settings.title != blank %}
+        <h2>{{ block.settings.title }}</h2>
+        {% endif %}
+        {% if block.settings.text != blank %}
+        {{ block.settings.text }}
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+{% schema %}
+  {
+    "name": "Product features",
+    "settings": [
+        {
+          "type": "image_picker",
+          "id": "bgimage",
+          "label": "Background image"
+        },
+		{
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 36
+        }
+	],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+		  {
+            "type": "richtext",
+            "id": "text",
+            "label": "Content"
+          }
+		]
+	  }
+	],
+	"presets": [
+    {
+      "name": "Product features"
+	}
+   ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

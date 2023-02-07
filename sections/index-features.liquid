@@ -1,0 +1,245 @@
+<style>
+  @-webkit-keyframes icon-marquee{0%{transform:translateY(-50%) translateX(0)}100%{transform:translateY(-50%) translateX(-50%)}}
+  @keyframes icon-marquee{0%{transform:translateY(-50%) translateX(0)}100%{transform:translateY(-50%) translateX(-50%)}}
+  @media screen and (min-width: 1025px){
+.bundle-callout__marquee {
+    order: 3;
+    padding: 0;
+}
+  }
+.bundle-callout__marquee {
+    position: relative;
+    width: 100%;
+}
+  .icon-marquee {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 50px;
+}
+  .icon-marquee__marquee {
+    position: relative;
+    width: auto;
+    min-width: 150%;
+    height: 50px;
+}
+  .icon-marquee__marquee-inner {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    overflow: hidden;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    height: 50px;
+    align-items: center;
+    -webkit-animation: icon-marquee 50s linear infinite;
+    animation: icon-marquee 50s linear infinite;
+    transform: translateY(-50%);
+}
+  
+  .template-product .icon-marquee__marquee {
+    min-width: 100%;
+}
+  .icon-marquee__icon {
+    display: inline-flex;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right: 40px;margin-bottom: 0px;
+}
+  .icon-marquee__icon svg {
+    width: 48px;
+    height: 48px;
+    margin-right: 20px;
+}
+  .icon-marquee__icon span {
+    font-size: 2rem;
+    line-height: 2.2rem;
+    font-weight: 700;
+}
+/*   .featureicon_rotating {
+     background: #a1e2d6;
+    border-bottom: 3px solid;
+    border-top: 3px solid;
+} */
+  @media (min-width: 750px) {
+  .template-product .icon-marquee__marquee-inner {
+    position: unset;
+    top: 0;
+    display: flex;
+    width: 100%;
+    -webkit-animation: none;
+    animation: none;
+    transform: unset;
+    justify-content: center;
+}
+  }
+@media (max-width: 749px) {
+.icon-marquee__icon svg {
+    width: 40px;
+    height: 40px;
+}      
+  .icon-marquee__icon span {
+    font-size: 15px;
+}
+  .featureicon_rotating {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+
+}
+</style>
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+ .features-icon svg, .features-icon svg g, .features-icon span, .features-icon span a { 
+   color: {{section.settings.colors_scheme}};fill: {{section.settings.colors_scheme}};
+ }
+.featureicon_rotating{
+	border-color:{{section.settings.colors_scheme}};
+}
+{%- endstyle -%}
+  <section class="featureicon_rotating features-area section-{{ section.id }}-padding isolate">
+     <div class="container">
+      {%- unless section.settings.title == blank -%}
+      <div class="title-wrapper title-wrapper--self-padded-mobile title-wrapper--no-top-margin center">
+        <h2 class="title {{ section.settings.heading_size }}">
+          {{ section.settings.title | escape }}
+        </h2>
+        {% if section.settings.text != blank %}
+        {{ section.settings.text}}
+        {% endif %}
+      </div>
+      {%- endunless -%}
+    </div> 
+
+    <div class="bundle-callout__marquee">
+      <div class="icon-marquee ">
+        <div class="icon-marquee__marquee" data-icon-marquee>
+          <div class="icon-marquee__marquee-inner">
+            {% for block in section.blocks %}
+            <div class="icon-marquee__icon features-icon" data-icon>
+              {% if block.settings.image != blank %}
+                <img src="{{block.settings.image | img_url:'100x'}}" alt="">                
+              {% else %}
+                {{ block.settings.svg }}
+              {% endif %}
+              <span>{{ block.settings.title }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% schema %}
+    {
+    "name": "Index features",
+    "settings": [
+		{
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+		{
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "colors_scheme",
+          "default": "#000",
+          "label": "SVG icons color scheme"
+        },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+	],
+	"blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+		{
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        },
+		{
+          "type": "text",
+          "id": "svg",
+          "label": "SVG Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+	  ]
+	}
+  ],
+	"presets": [
+       {
+        "name": "Index features"
+       }
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,99 @@
+<style>
+  .video-carousel {
+    margin: 30px 10px 20px;
+}
+  .video-carousel .slick-arrow {
+    color: rgba(var(--color-foreground),.75);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;z-index: 9;
+}
+  .video-carousel button.slick-prev:before, .video-carousel button.slick-next:before {
+    font-family: FontAwesome;
+    font-size: 50px;
+    line-height: 1;
+    color: #da2a2c;
+    opacity: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  .video-carousel button.slick-prev:before {
+    content: "\f104";
+}
+ .video-carousel button.slick-next:before {
+    content: "\f105";
+}
+  .video-carousel button.slick-next {
+    right: 0;
+}
+  .video-container {
+    padding: 0 10px;
+}
+</style>
+{% if product.handle contains 'marsh-mallow-krisp-bar-8-count' and section.settings.showvideos %}
+<div class="video-carousel">
+  <div class="video-carousel-inner">
+    {% if product.metafields.custom.product_video != blank %}
+    <div class="video-container"> 
+        <video class="ply_pause" width="100%" height=100%" controls>
+          <source src="{{ product.metafields.custom.product_video | file_url }}" type="video/mp4">
+        </video>
+    </div>
+    {% endif %}
+    {% if product.metafields.custom.product_video_2 != blank %}
+    <div class="video-container"> 
+        <video class="ply_pause" width="100%" height=100%" controls>
+          <source src="{{ product.metafields.custom.product_video_2 | file_url }}" type="video/mp4">
+        </video>
+    </div>
+    {% endif %}
+    {% if product.metafields.custom.product_video_3 != blank %}
+    <div class="video-container"> 
+        <video class="ply_pause" width="100%" height=100%" controls>
+          <source src="{{ product.metafields.custom.product_video_3 | file_url }}" type="video/mp4">
+        </video>
+    </div>
+    {% endif %}
+    {% if product.metafields.custom.product_video_4 != blank %}
+    <div class="video-container"> 
+        <video class="ply_pause" width="100%" height=100%" controls>
+          <source src="{{ product.metafields.custom.product_video_4 | file_url }}" type="video/mp4">
+        </video>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+{% schema %}
+  {
+    "name": "Video carousel",
+    "settings": [
+        {
+          "type": "checkbox",
+          "id": "showvideos",
+          "default": false,
+          "label": "Show Video Testimonials through Metafields"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Video carousel"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

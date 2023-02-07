@@ -1,0 +1,141 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .block_slidee {
+    width: 88%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;text-align: center;
+/*     box-shadow: 0 2px 16px 7px #ccc; */
+    padding: 30px;
+    border-radius: 25px;
+  }
+  .collections-ingredients {
+    margin: 80px auto 50px;
+  }
+  .flx_content p {
+    margin-top: 10px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+{%- endstyle -%}
+
+{% assign custom_tabs = product.metafields.howtouse %}
+{% if custom_tabs.size > 0 %}
+<div class="collections-ingredients page-width section-{{ section.id }}-padding">
+  {%- unless section.settings.heading == blank -%}
+      <div class="title-wrapper-with-link center title-wrapper--no-top-margin">
+        <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+      </div>
+    {%- endunless -%}
+  <div class="whole_banner">
+    
+    <img src="https://cdn.shopify.com/s/files/1/1633/5925/files/clock-png-5.png?v=1649694195" alt="" />
+    
+    <div class="block_slidee">
+      {% for tab_info in custom_tabs %}
+        {% assign tab_name = tab_info | first %}
+      	{% assign tab_img = tab_info | first | append: '.png' %}
+		{% assign tab_value = tab_info | last %}
+		{% if tab_value == true %}
+        <div class="sec_flx sec_flx__{{forloop.index}}">
+          <div class="flx_img">          
+            <img src="{{tab_img | file_url}}" alt="{{tab_name}}" />
+          </div>
+          <div class="flx_content">
+            <p>{{tab_name | replace: "_", " " }}</p>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+{% schema %}
+  {
+    "name": "Ingredients list",
+    "settings": [
+		{
+          "type": "text",
+          "id": "heading",
+          "default": "Talk about your brand",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.all.padding.section_padding_heading"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 52
+        }
+	],
+	"blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          
+	    ]
+	  }
+	],
+	"presets": [
+       {
+        "name": "Ingredients list"
+       }
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

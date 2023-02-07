@@ -1,0 +1,200 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+.cosmok-about-content p em strong {
+    color: #7ad4f4;
+}
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<!-- about-area -->
+<section id="about" class="section-{{ section.id }}-padding isolate cosmok-about-area">
+  <div class="custom-page-width">
+    <div class="grid align-items-center">
+      <div class="about-area-width">
+        <div class="cosmok-about-img">
+          {% if section.settings.main_image != blank %}
+            <img class="main-img" src="{{ section.settings.main_image | img_url: '1048x'}}" alt="">
+          {% endif %}
+          {% if section.settings.guarantee_img != blank %}
+            <img class="guarantee-img" src="{{ section.settings.guarantee_img | img_url: '1048x'}}" alt="">
+          {% endif %}
+        </div>
+      </div>
+      <div class="about-area-width">
+        <div class="cosmok-about-content">
+          {% if section.settings.prod_sub-title != blank %}
+            <span class="sub-title pt-30">{{  section.settings.prod_sub-title}}</span>
+          {% endif %}
+          {% if section.settings.prod_title != blank %}
+            <h2 class="title">{{  section.settings.prod_title}}</h2>
+          {% endif %}
+
+          {% if section.settings.prod_subtext != blank %}
+            <p>{{  section.settings.prod_subtext }}</p>
+          {% else %}
+          {% if page.handle contains "about-us" %}
+              {{ page.content }}
+          {% endif %}
+          {% endif %}
+          
+          {% if section.settings.btn != blank %}
+            <a href="{{section.settings.btn_link }}">{{  section.settings.btn }}</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="about-area-width">
+        <div class="cosmok-about-content">
+          {% if section.settings.prod_sub-title1 != blank %}
+            <span class="sub-title pt-30">{{  section.settings.prod_sub-title1 }}</span>
+          {% endif %}
+          {% if section.settings.prod_title1 != blank %}
+            <h2 class="title">{{  section.settings.prod_title1 }}</h2>
+          {% endif %}
+
+          {% if section.settings.prod_subtext1 != blank %}
+            <p>{{  section.settings.prod_subtext1 }}</p>
+          {% else %}
+          {% if page.handle contains "about-us" %}
+              {{ page.content }}
+          {% endif %}
+          {% endif %}
+          {% if template contains 'about' %}
+          <img src="https://cdn.shopify.com/s/files/1/1633/5925/files/signature-black_small_ab395b64-fe31-423b-b8ba-6eb727424161.png?v=1649681652" alt="" />
+          {% endif %}
+          <div class="cstm_btn">
+           {% if section.settings.btn_link1 and section.settings.btn1 != blank %}
+             <a class="button button--primary animate-arrow" {% if section.settings.btn_link1 == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.btn_link1 }}"{% endif %}>{{ section.settings.btn1 | escape }}<span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span></a>
+           {% endif %}
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="tracking-shape"></div>
+  <div class="cos-about-shape">
+    <ul>
+      {% if section.settings.prod_shape_1 != blank %}
+        <li><img src="{{ section.settings.prod_shape_1 | img_url: '1048x'}}" alt=""></li>
+      {% endif %}
+      {% if section.settings.prod_shape_2 != blank %}
+        <li><img src="{{ section.settings.prod_shape_2 | img_url: '1048x'}}" alt=""></li>
+      {% endif %}
+    </ul>
+  </div>
+</section>
+	<!-- about-area-end -->
+{% schema %}
+  {
+    "name": "About area",
+    "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+        {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Product Main Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "guarantee_img",
+          "label": "Product Gaurantee Image"
+        },
+        {
+          "type": "text",
+          "id": "prod_sub-title",
+          "label": "Product Sub-Title"
+        },
+        {
+          "type": "text",
+          "id": "prod_title",
+          "label": "Title"
+        },
+		{
+          "type": "richtext",
+          "id": "prod_subtext",
+          "label": "Subtext"
+        },
+		{
+          "type": "text",
+          "id": "btn",
+          "label": "Button"
+        },
+		{
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button link"
+        },
+        {
+          "type": "image_picker",
+          "id": "prod_shape_1",
+          "label": "Product Shape 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "prod_shape_2",
+          "label": "Product shape 2"
+        },
+        {
+          "type": "text",
+          "id": "prod_sub-title1",
+          "label": "Product Sub-Title 1"
+        },
+        {
+          "type": "text",
+          "id": "prod_title1",
+          "label": "Title 1"
+        },
+		{
+          "type": "richtext",
+          "id": "prod_subtext1",
+          "label": "Subtext 1"
+        },
+		{
+          "type": "text",
+          "id": "btn1",
+          "label": "Button 1"
+        },
+		{
+          "type": "url",
+          "id": "btn_link1",
+          "label": "Button link 1"
+        }
+],
+	"presets": [
+       {
+        "name": "About area"
+       }
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

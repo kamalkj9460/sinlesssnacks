@@ -1,0 +1,140 @@
+<!-- cosmok-product-area -->
+	<section class="cosmok-product-area">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-4 col-lg-6">
+					<div class="cosmok-section-title text-center mb-45">
+						<span class="sub-title">TOP BRANDED</span>
+						<h2 class="title">NEW PRODUCTS</h2>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane show active" id="featured" role="tabpanel" aria-labelledby="featured-tab">
+				<div class="row cos-product-active justify-content-center">
+					<div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+						<div class="cos-product-item">
+							<div class="cos-product-thumb">
+								<a href="#"><img src="img/product/product-a.png" alt=""></a>
+								<span class="tag">New</span>
+							</div>
+							<div class="cos-product-content">
+								<h4 class="title"><a href="#">Crunch Bar</a></h4>
+								<span>Lip Gloss</span>
+								<h3 class="price">$35.00</h3>
+								<div class="rating">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+						<div class="cos-product-item">
+							<div class="cos-product-thumb">
+								<a href="#"><img src="img/product/product-b.png" alt=""></a>
+								<span class="discount">-30%</span>
+							</div>
+							<div class="cos-product-content">
+								<h4 class="title"><a href="#">Crunch Bar</a></h4>
+								<span>Lip Gloss</span>
+								<h3 class="price">$39.00</h3>
+								<div class="rating">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+						<div class="cos-product-item">
+							<div class="cos-product-thumb">
+								<a href="#"><img src="img/product/product-c.png" alt=""></a>
+								<span class="tag">New</span>
+							</div>
+							<div class="cos-product-content">
+								<h4 class="title"><a href="#">Crunch Bar</a></h4>
+								<span>Lip Gloss</span>
+								<h3 class="price">$42.00</h3>
+								<div class="rating">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+						<div class="cos-product-item">
+							<div class="cos-product-thumb">
+								<a href="#"><img src="img/product/product-d.png" alt=""></a>
+								<span class="tag">New</span>
+							</div>
+							<div class="cos-product-content">
+								<h4 class="title"><a href="#">Crunch Bar</a></h4>
+								<span>Lip Gloss</span>
+								<h3 class="price">$25.00</h3>
+								<div class="rating">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- cosmok-product-area-end -->
+{% schema %}
+  {
+    "name": "Cosmol Product Area",
+    "settings": [],
+	"blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+		{
+          "type": "text",
+          "id": "title_link",
+          "label": "Title link"
+        }
+	  ]
+	}
+],
+	"presets": [
+       {
+        "name": "Cosmol Product Area"
+       }
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

@@ -1,0 +1,108 @@
+<!-- promo-services -->
+<section class="promo-services gray-bg pt-110 pb-110">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-6">
+        <div class="cosmok-section-title text-center mb-45">
+          {% if section.settings.subtitle != blank %}
+            <span class="sub-title">{{ section.settings.subtitle }}</span>
+          {% endif %}
+          {% if section.settings.title != blank %}
+            <h2 class="title">{{ section.settings.title }}</h2>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="container">
+          <div class="row justify-content-center">
+            {% if section.settings.image != blank %}
+              <img src="{{ section.settings.image | img_url: '1048x'}}" alt="sinless" class="screen-img take_time">
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 pt-40">
+        <div class="container">
+          <div class="row">
+            {% for block in section.blocks %}
+              <div class="col-md-12">
+                <div class="promo-services-item mb-40">
+                  {% if block.settings.image2 != blank %}
+                    <div class="icon"><img src="{{ block.settings.image2 | img_url: '1048x'}}" alt=""></div>
+                  {% endif %}
+                  <div class="content">
+                    {% if block.settings.title != blank %}
+                      <h6>{{ block.settings.title}}</h6>
+                    {% endif %}
+                    {% if block.settings.promo_text != blank %}
+                      <p>{{ block.settings.promo_text}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- promo-services-end -->
+{% schema %}
+  {
+    "name": "Promo Services",
+    "settings": [
+       {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+],
+	"blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Promo Content"
+        },
+		{
+          "type": "text",
+          "id": "promo_text",
+          "label": "Promo Text"
+        }
+	  ]
+	}
+],
+	"presets": [
+       {
+        "name": "Promo Services"
+       }
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

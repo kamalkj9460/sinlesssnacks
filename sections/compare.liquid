@@ -1,0 +1,90 @@
+<div class="teamsecman cstm">
+  <div class="top_txt">
+    <h1> {{ section.settings.title }} </h1>
+    <p> {{ section.settings.subtitle }} </p>
+  </div>
+  <div class="main-cont-div">
+    <div class="left sc">
+      <div class="compare-flex">
+        <div class="compare-wrap">
+          {% for block in section.blocks %}
+            <div class="svg-ctt">
+             <p>{{ block.settings.contenttrue }} </p>
+            </div>
+          {% endfor %}
+        </div>
+          {% if section.settings.img1 != blank %}
+           <img src="{{ section.settings.img1 | img_url:'190x'}}"/>
+          {% endif %}
+      </div>
+    </div>
+    
+    <div class="right sc">
+      <div class="compare-flex">
+      	<div class="compare-wrap">
+          {% for block in section.blocks %}
+            <div class="svg-ctt">
+                <p>{{ block.settings.contentfalse }} </p>
+            </div>
+          {% endfor %}
+        </div>
+          {% if section.settings.img2 != blank %}
+           <img src="{{ section.settings.img2 | img_url:'190x'}}"/>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "compare",
+    "settings": [
+        {
+        "id": "title",
+        "type": "text",
+        "label": "Heading",
+        "default": "Title"
+        },
+        {
+        "id": "subtitle",
+        "type": "text",
+        "label": "sub Heading"
+        },
+		{
+          "type": "image_picker",
+          "id": "img1",
+          "label": "Left Image"
+        },
+		{
+          "type": "image_picker",
+          "id": "img2",
+          "label": "Right Image"
+        }
+     ],
+      "blocks": [
+      {
+        "type": "compare",
+        "name": "compare",
+        "settings": [
+          {
+            "type": "text",
+            "id": "contenttrue",
+            "label": "text true"
+          },
+          {
+            "type": "text",
+            "id": "contentfalse",
+            "label": "Text false"
+          }
+        ]
+      }
+    ],
+       "presets": [
+        {
+          "name": "compare Section",
+          "category": "compare"
+        }
+      ]
+  }
+{% endschema %}

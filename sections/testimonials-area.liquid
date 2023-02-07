@@ -1,0 +1,176 @@
+<style>
+button.slick-prev:before, button.slick-next:before {
+    font-family: FontAwesome;
+    font-size: 50px;
+    line-height: 1;
+    color: #da2a2c;
+    opacity: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+ button.slick-next:before {
+    content: "\f105";
+}
+  button.slick-prev:before {
+    content: "\f104";
+}
+  button.slick-prev {
+    left: -75px;
+}
+  button.slick-next {
+    right: -75px;
+}
+  .slick-arrow {
+    color: rgba(var(--color-foreground),.75);
+    background: transparent;
+    border: none;
+    cursor: pointer;position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;font-size: 0;
+}
+</style>
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<!-- testimonial-area -->
+<section class="testimonial-area section-{{ section.id }}-padding">
+  <div class="custom-page-width">
+    <div class="grid">
+      <div class="title-width">
+        <div class="section-title center mb-50">
+          {% if section.settings.title != blank %}
+            <h2 class="title">{{ section.settings.title}}</h2>
+          {% endif %}
+          {% if section.settings.text != blank %}
+            <p>{{ section.settings.text}}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="testimonial-wrap page-width--narrow">
+          <div class="testimonial-slider">
+            {% for block in section.blocks %}
+              <div class="testimonial-author">
+                <div class="testi-author-thumb">
+                  {% if block.settings.author_image != blank %}
+                  <img src="{{ block.settings.author_image | img_url: '1048x'}}" alt="">
+                  {% endif %}
+                </div>
+                <div class="testi-author-infoo">
+                  {% if block.settings.author_title != blank %}
+                  <h5>{{ block.settings.author_title}}</h5>
+                  {% endif %}
+                  {% if block.settings.author_txt != blank %} 
+                  <p>{{ block.settings.author_txt}}</p>
+                  {% endif %}
+                  <div class="testimonial-content">
+                  {% if block.settings.test_cntnt != blank %} 
+                  <p>{{ block.settings.test_cntnt}}</p>
+                  {% endif %}
+                </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- testimonial-area-end -->
+{% schema %}
+  {
+    "name": "Testimonials area",
+    "settings": [
+       {
+          "type": "text",
+          "id": "title",
+          "label": "Testimonial Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Testimonial Subtext"
+        },
+		{
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 36
+        }
+],
+"blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+	    {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author Image"
+        },
+        {
+          "type": "text",
+          "id": "author_title",
+          "label": "Author Title"
+        },
+        {
+          "type": "text",
+          "id": "author_txt",
+          "label": "Author Content"
+        },
+        {
+          "type": "richtext",
+          "id": "test_cntnt",
+          "label": "Testimonial Content"
+        }
+	
+	  ]
+	}
+],
+	"presets": [
+       {
+        "name": "Testimonials area"
+       }
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

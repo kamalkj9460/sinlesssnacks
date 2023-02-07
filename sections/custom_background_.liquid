@@ -1,0 +1,62 @@
+<div class="featured_background">  
+  <div class="image">
+    {% if section.settings.background_image %} 
+      <img class="small-hide" src="{{ section.settings.background_image | img_url: '2048x'}}" alt="" />
+    {% endif %}
+    {% if section.settings.background_image1 %} 
+      <img class="medium-hide large-up-hide" src="{{ section.settings.background_image1 | img_url: '1048x'}}" alt="" />
+    {% endif %}
+    <div class="absoluted_txt">
+      <div class="cstm_txt">
+        <h2>{{  section.settings.heading }}</h2>
+      </div>
+      <div class="cstm_btn">
+        <a href="{{  section.settings.btn_url }}" class="button button--primary">{{ section.settings.btn_txt}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Background Image Text",
+    "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background  Image"
+    },
+	{
+      "type": "image_picker",
+      "id": "background_image1",
+      "label": "Background Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "btn_txt",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button Url"
+    }
+],
+	"presets": [
+       {
+        "name": "Background Image Text"
+       }
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

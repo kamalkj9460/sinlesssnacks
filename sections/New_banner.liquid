@@ -1,0 +1,72 @@
+<section class="banner-area banner-bg" style="background-image:url({{section.settings.bgimage | img_url:'2048x'}})">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-6 col-md-8 order-0 order-lg-2">
+        <div class="banner-img">
+          <div class="about-img">
+            <img src="{{section.settings.image | img_url:'800x'}}" class="rotatemee" alt=""> 
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="banner-content">
+          <h2 class="title" data-aos="fade-left" data-aos-delay="300">{{section.settings.title}}</h2>
+
+          <p data-aos="fade-left" data-aos-delay="400">{{section.settings.text}}</p>
+          <div class="banner-btn-wrap" data-aos="fade-left" data-aos-delay="500">
+            <a href="{{section.settings.btn_link}}" class="btn gradient-btn">{{section.settings.btn}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- banner-area-end -->
+{% schema %}
+  {
+    "name": "New banner",
+    "settings": [
+		{
+          "type": "image_picker",
+          "id": "bgimage",
+          "label": "Background Image"
+        },
+		{
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+		{
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+		{
+          "type": "text",
+          "id": "text",
+          "label": "text"
+        },
+		{
+          "type": "text",
+          "id": "btn",
+          "label": "Button"
+        },
+		{
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button link"
+        }
+	],
+	"presets": [
+       {
+        "name": "New banner"
+       }
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,89 @@
+<div class="media-news-articles page-width">
+  <div class="media-news-inner">
+    <div class="media-news-flex">
+      {% for block in section.blocks %}
+          <div class="media-news-content">
+        	<a href="{{block.settings.link_to}}" target="_blank">
+            {% if block.settings.image != blank%}
+              <div class="media-news-image">
+                <img src="{{ block.settings.image | img_url:'500x'}}"/>
+              </div>
+            {% endif %}
+            <div class="media-news-text">
+              {% if block.settings.media-outlet != blank%}
+              	<div class="h5 media-outlet">{{block.settings.media-outlet}}</div>
+              {% endif %}
+              {% if block.settings.title != blank%}
+              	<h3 class="h2">{{block.settings.title}}</h3>
+              {% endif %}
+              {% if block.settings.text != blank%}
+              	{{block.settings.text | truncatewords: 50}}
+              {% endif %}
+              {% if block.settings.button != blank%}
+                <div class="article_btn">
+                  <span>{{block.settings.button}}</span>
+                </div>
+              {% endif %}
+            </div>
+         	</a>
+          </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Media news aricles",
+    "settings": [],
+	"blocks": [
+      {
+        "type": "text",
+        "name": "Add article",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Article image"
+          },
+          
+		  {
+            "type": "text",
+            "id": "media-outlet",
+            "label": "Sub title"
+          },
+		  {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+		  {
+            "type": "richtext",
+            "id": "text",
+            "label": "Content"
+          },
+		  {
+            "type": "text",
+            "id": "button",
+            "label": "Button"
+          },
+		  {
+            "type": "text",
+            "id": "link_to",
+            "label": "Button link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Media news aricles"
+	  }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

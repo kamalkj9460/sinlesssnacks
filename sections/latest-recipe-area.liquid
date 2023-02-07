@@ -1,0 +1,91 @@
+<!-- LATEST RECIPES-area -->
+	<section class="work-process-area">
+		<div class="container">
+			<div class="work-process-item">
+				<div class="row align-items-center justify-content-center">
+					<div class="col-lg-6 col-md-9 order-0 order-lg-2">
+						<div class="work-process-img">
+                          {% if section.settings.work_img1 != blank %}
+							<img src="{{ section.settings.work_img1 | img_url: '1048x' }}" alt="" class="screen-img">
+                          {% endif %}
+                          {% if section.settings.work_img2 != blank %}
+							<img src="{{ section.settings.work_img2 | img_url: '1048x' }}" alt="" class="overlay-img" data-aos="fade-left">
+				          {% endif %}
+                        </div>
+					</div>
+					<div class="col-lg-6">
+						<div class="work-process-content">
+                           {% if section.settings.work_numbering != blank %}
+							 <div class="wp-count">{{ section.settings.work_numbering}}</div>
+                           {% endif %}
+							<div class="work-process-desc">
+                              {% if section.settings.title != blank %}
+								<h4 class="title">{{ section.settings.title}}</h4>
+                               {% endif %}
+                              {% if section.settings.cstm_txt != blank %}
+								<p>{{ section.settings.cstm_txt}}</p>
+                               {% endif %}
+                              {% if section.settings.btn_url and section.settings.btn_txt != blank %}
+								<a href="{{ section.settings.btn_url}}" class="wp-btn">{{ section.settings.btn_txt}}</a>
+                               {% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- LATEST RECIPES-area-end -->
+{% schema %}
+  {
+    "name": "Latest Recipes",
+    "settings": [
+        {
+          "type": "image_picker",
+          "id": "work_img1",
+          "label": "Work Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "work_img2",
+          "label": "Work Image 2"
+        },
+        {
+          "type": "text",
+          "id": "work_numbering",
+          "label": "Numbering"
+        },
+		{
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {  
+          "type": "text",
+          "id": "cstm_txt",
+          "label": "Text"
+        },
+        {  
+          "type": "text",
+          "id": "btn_txt",
+          "label": "Button Text"
+        },
+        {  
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button Link"
+        }
+],
+	"presets": [
+       {
+        "name": "Latest Recipes"
+       }
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

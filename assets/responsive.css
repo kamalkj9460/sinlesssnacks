@@ -1,0 +1,358 @@
+/* Extra large devices (large desktops, 1800px and up) */
+@media (max-width: 500px) {
+.token-item {
+    display: block;
+}
+
+}
+
+
+/* Extra large devices (large desktops, 500px and up) */
+@media (max-width: 500px) {
+.cosmok-about-img .guarantee-img {
+    position: absolute;
+    right: -6%;
+    width: 40%;
+    top: -17%;
+}
+.btn {
+    padding: 14px 0px;
+}
+.featured-item img {
+    width: 50%;
+}
+.shop-details-nav-wrap {
+    width: 60px;
+    flex: 0 0 60px;
+}
+.breadcrumb-content .breadcrumb .breadcrumb-item {
+    font-size: 14px;
+}
+
+
+}
+
+/* Extra large devices (large desktops, 1800px and up) */
+@media (max-width: 1500px) {
+.banner-bg {
+    min-height: 1000px;
+    background-position: bottom center;
+    padding: 210px 0 0;
+    overflow: hidden;
+}
+.about-img img {
+    max-width: 700px;
+}
+
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1199.98px) {
+.custom-container {
+    max-width: 960px;
+}
+.header-action > ul li.header-btn {
+	display: none;
+}
+.navbar-wrap ul li a {
+    padding: 35px 17px;
+}
+.banner-img {
+    padding-right: 0;
+}
+.banner-content {
+    padding: 70px 0 50px 0;
+}
+.about-img img {
+    max-width: 100%;
+}
+.about-title {
+    margin-bottom: 30px;
+}
+.banner-btn-wrap .btn:first-child {
+    margin-right: 30px;
+}
+.features-item-wrap .row [class*="col"] {
+    max-width: 33.333%;
+    flex: 0 0 33.333%;
+}
+.work-process-img,
+.work-process-item:nth-child(even) .work-process-img,
+.work-process-item:nth-child(odd) .work-process-content {
+	padding: 0 0;
+}
+.testimonial-item {
+    padding: 0 0;
+}
+.app-download-btn img {
+    max-width: 170px;
+}
+.app-download-btn {
+    margin-top: 30px;
+}
+.promo-services-item {
+    margin: 0 0 10px;
+}
+.promo-services.gray-bg {
+    padding-bottom: 50px;
+}
+
+
+}
+
+
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 991.98px) {
+.custom-container {
+    max-width: 720px;
+}
+.main-header {
+	padding: 25px 0;
+}
+.menu-nav {
+	justify-content: space-between;
+}
+.header-action {
+	margin-right: 40px;
+}
+.menu-outer .navbar-wrap {
+	display: block !important;
+}
+.menu-area .mobile-nav-toggler {
+	display: block;
+}
+.menu-area {
+    padding: 30px 0;
+}
+.banner-bg {
+    min-height: auto;
+    background-position: top center;
+    padding: 190px 0 120px;
+
+
+	background-image: -moz-linear-gradient( 40deg, #49b6dd 0%, #54badc 100%);
+	background-image: -webkit-linear-gradient( 40deg, #49b6dd 0%, #54badc 100%);
+	background-image: -ms-linear-gradient( 40deg, #49b6dd 0%, #54badc 100%);
+}
+.banner-content {
+    padding: 0 0;
+    text-align: center;
+}
+.banner-btn-wrap {
+    justify-content: center;
+}
+.banner-img {
+    padding-right: 0;
+    margin-bottom: 60px;
+}
+.about-area {
+    padding: 100px 0 0;
+}
+.features-item-wrap .row [class*="col"] {
+    max-width: 40%;
+    flex: 0 0 40%;
+}
+.work-process-item {
+	margin-bottom: 100px;
+}
+.work-process-item:last-child {
+	margin-bottom: 0;
+}
+.work-process-img {
+    margin-bottom: 40px;
+}
+.work-process-content {
+    padding-left: 0;
+}
+.pricing-item.hardwired-tracker .pricing-img .product-shadow {
+    left: -60px;
+}
+.testimonial-wrap {
+    padding: 55px 80px 65px;
+}
+.app-download-area {
+	margin: 0 0;
+}
+.app-download-area {
+    margin: 0 0;
+    padding: 120px 0;
+}
+.app-download-img {
+    margin: 0 0;
+}
+.newsletter-area {
+    padding: 30px 0 30px;
+}
+.banner-btn-wrap .btn:first-child {
+    margin-right: 15px;
+}
+.banner-btn-wrap .btn {
+    margin: 15px 15px 0;
+}
+.shop-details-flex-wrap {
+    margin: 0 0 40px;
+}
+.shop-details-content {
+    margin-left: 0;
+}
+.discount-product-item .thumb img {
+    width: 100%;
+}
+
+}
+
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 767.98px) {
+.custom-container {
+    max-width: 100%;
+}
+.transparent-header {
+	top: 0;
+}
+.features-item-wrap .row [class*="col"] {
+    max-width: 100%;
+    flex: 0 0 100%;
+}
+.banner-bg {
+    padding: 150px 0 120px;
+}
+.banner-product-img {
+	display: none;
+}
+.banner-content .title {
+    font-size: 38px;
+}
+.banner-content .title br {
+	display: none;
+}
+.about-img {
+    margin-bottom: 30px;
+}
+.about-title .title {
+    font-size: 32px;
+}
+.about-title {
+    margin-bottom: 25px;
+}
+.work-process-img .overlay-img {
+	display: none;
+}
+.work-process-img .screen-img {
+    max-width: 100%;
+}
+.work-process-desc p {
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+.pricing-item {
+    padding: 40px 30px 55px;
+    margin-bottom: 30px;
+}
+.pricing-img .product {
+	max-width: 100%;
+}
+.pricing-item.hardwired-tracker .pricing-img .product-shadow {
+    left: -79px;
+}
+.blog-content {
+    padding: 25px 20px 35px;
+}
+.testimonial-wrap {
+    padding: 0px 25px;
+}
+.testimonial-bottom-active {
+    width: auto;
+    margin: 0 auto;
+}
+.testi-author-info {
+    width: auto;
+    position: unset;
+    left: 0;
+    transform: unset;
+    bottom: 0;
+}
+.testimonial-author {
+    padding-bottom: 0;
+}
+.testimonial-item {
+    padding: 0 0;
+    margin: 0 0 50px;
+}
+.app-download-img {
+    margin: 0 0  30px;
+}
+.newsletter-form button {
+    position: relative;
+    right: 0;
+    min-width: auto;
+    padding: 22px 40px;
+    top: 0;
+    bottom: 0;
+    box-shadow: none;
+    margin-top: 16px;
+}
+.newsletter-form::before {
+    top: 22px;
+    transform: unset;
+    left: 35px;
+}
+.newsletter-form input {
+    padding:0;
+}
+.newsletter-form {
+	text-align: center;
+}
+.banner-img {
+    text-align: center;
+}
+.work-process-img {
+    text-align: center !important;
+}
+.scroll-top {
+    right: 15px;
+}
+.breadcrumb-overflow {
+    padding: 115px 0 60px;
+}
+.breadcrumb-content .title {
+    font-size: 46px;
+    margin: 0 0 20px;
+}
+.featured-item img {
+    max-width: 100%;
+    width: auto;
+    max-height: 100%;
+}
+
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+.custom-container {
+    max-width: 540px;
+}
+.banner-content .title {
+    font-size: 42px;
+}
+.features-item-wrap .row [class*="col"] {
+    max-width: 50%;
+    flex: 0 0 50%;
+}
+.work-process-img {
+    text-align: center !important;
+}
+.testimonial-wrap {
+    padding: 55px 40px 55px;
+}
+.app-download-img {
+    text-align: center;
+}
+
+}
+
+

@@ -1,0 +1,13 @@
+<!-- Era Of Ecom App Hook start -->
+<link rel="stylesheet" type="text/css" href="https://cartroids.eraofecom.org/hook/hook.css">
+<script type="text/javascript" src="https://cartroids.eraofecom.org/hook/hook.js" async></script>
+<!-- Era Of Ecom App Hook end -->
+
+<!-- collections data start here  updated now-->
+{% if template contains "product" %}
+<meta name="ca:collections" content="{{ product.collections | map: "title" | join: ", " | escape }}">
+{% endif %}
+{% if template contains "cart" %}
+<meta name="ca:collections" content='{"":"" {% for line_item in cart.items %}, "{{line_item.product.id}}": [""{% for collection in line_item.product.collections %},"{{ collection.title | replace: '"', '\"' | escape }}"{% endfor %}]{% endfor %} }'>
+{% endif %}
+<!-- collections data end here -->

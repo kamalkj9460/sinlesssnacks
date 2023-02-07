@@ -1,0 +1,217 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+
+.pb100 {
+    padding-bottom: 100px;
+}
+
+.pt100 {
+    padding-top: 100px;
+ }
+ 
+.counter-section {
+/*   background: url(bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+  position: relative;
+  background-size: cover;
+}
+
+.counter-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.89);
+}
+
+.count-items {
+  text-align: center;
+/*   padding: 50px 20px;
+  border-radius: 100%;
+  border-bottom: 3px dotted #666;
+  border-top: 3px dotted #666; */
+}
+.count-items:hover.count-items i{
+  color: #ffaf53
+}
+.count-items:hover.count-items h2{
+  color: #1a2023
+}
+.count-items i {
+  color: #f35b68;
+  font-size: 36px;
+}
+
+.count-items span {
+  color: #000;
+  font-size: 36px;
+  padding: 20px 0px;
+  display: inherit;
+  font-weight: 700;
+}
+
+.count-items h2 {
+  font-size: 16px;
+  color: #1a2023;
+}
+.funfact {
+  margin-top: 50px;
+  text-align: right;
+}
+
+.funfact h2 {
+    color: #ffaf53;
+    font-size: 42px;
+    font-weight: 700;
+    position: relative;
+
+}
+.funfact h2:after {
+position: absolute;
+content: "";
+width: 115px;
+height: 2px;
+background:#fff;
+right: 0px;
+bottom: -24px;
+
+
+}
+.funfact p {
+  line-height: 24px;
+  font-size: 16px;
+  margin-top: 50px;
+  color: #e1e1e1;
+}
+a.site-btn.transition-ease.quote-btn {
+  padding:14px 28px;
+  background: #f35b68;
+}
+.site-btn.header-quote-btn:hover {
+
+    background: transparent;
+    color: #252525;
+
+}
+.site-btn.header-quote-btn {
+padding:14px 28px;
+background: #f35b68;
+  background: linear-gradient(to right, #f35b68, #ffaf53);
+  margin-left: 20px;
+text-transform: capitalize;
+background-origin: border-box ;
+}
+#marquee-container {
+  padding: 20px 0px;
+}
+
+.fix {
+    overflow: hidden;
+}
+  section.counter-section .row {
+    justify-content: center;
+}
+  section.counter-section {
+    background: #fafafa;
+    margin-top: 50px;
+}
+</style>
+<section class="counter-section fix section-{{ section.id }}-padding">
+<div class="counter-overlay"></div>
+  <div class="custom-page-width">
+    <div class="grid justify-content-center">
+      {% for block in section.blocks %}
+      <div class="counter-width">
+        <div class="currency-counter count-items">
+<!--           <i class="fa fa-rocket"></i> -->
+          <span class="currency-count">{{ block.settings.stat_no}}</span>
+          <h2>{{ block.settings.title}}</h2>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<script src="{{ 'jquery.counterup.min.js' | asset_url }}"></script>
+<script src="{{ 'waypoints.min.js' | asset_url }}"></script>
+<script src="{{ 'maincounter.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Stat counter",
+    "settings": [
+       {
+          "type": "text",
+          "id": "title",
+          "label": "Stat counter Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Stat counter Subtext"
+        },
+		{
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 36
+        }
+    ],
+    "blocks": [
+        {
+          "type": "stat",
+          "name": "Stat Counter",
+          "settings": [
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Stat Title"
+            },
+            {
+              "type": "text",
+              "id": "stat_no",
+              "label": "Stats"
+            }
+
+          ]
+        }
+    ],
+	"presets": [
+       {
+        "name": "Stat counter"
+       }
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

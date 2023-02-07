@@ -1,0 +1,213 @@
+<div class="custom_richtext page-width">
+  <div class="about_subtitle text_allignment--{{ section.settings.subtitle_allignment}}">
+    {% if section.settings.subtitle != blank %}
+      <h2>{{ section.settings.subtitle}}</h2>
+    {% endif %}
+  </div>
+  <div class="about_richtext text_allignment--{{ section.settings.text_allignment}}">
+    {% if section.settings.subtext != blank %}
+      <p>{{ section.settings.subtext}}</p>
+    {% endif %}
+  </div>
+  <div class="about_icons icon_flex">
+    <div class="about_icons_content">
+      {% if section.settings.icon1 != blank %}
+        <img src="{{section.settings.icon1 | img_url:'65x'}}"/>
+      {% endif %}
+      {% if section.settings.icontext1 != blank %}
+        <p>{{section.settings.icontext1}}</p>
+      {% endif %}
+    </div>
+    <div class="about_icons_content">
+      {% if section.settings.icon2 != blank %}
+        <img src="{{section.settings.icon2 | img_url:'65x'}}"/>
+      {% endif %}
+      {% if section.settings.icontext2 != blank %}
+        <p>{{section.settings.icontext2}}</p>
+      {% endif %}
+    </div>
+    <div class="about_icons_content">
+      {% if section.settings.icon3 != blank %}
+        <img src="{{section.settings.icon3 | img_url:'65x'}}"/>
+      {% endif %}
+      {% if section.settings.icontext3 != blank %}
+        <p>{{section.settings.icontext3}}</p>
+      {% endif %}
+    </div>
+    <div class="about_icons_content">
+      {% if section.settings.icon4 != blank %}
+        <img src="{{section.settings.icon4 | img_url:'65x'}}"/>
+      {% endif %}
+      {% if section.settings.icontext4 != blank %}
+        <p>{{section.settings.icontext4}}</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="about_text text_allignment--{{ section.settings.text_allignment}}">
+    {% if section.settings.text != blank %}
+      <p>{{ section.settings.text}}</p>
+    {% endif %}
+  </div>
+  <div class="main_heading text_allignment--{{ section.settings.heading_allignment}}">
+    {% if section.settings.heading != blank %}
+      <h1>{{ section.settings.heading}}</h1>
+    {% endif %}
+  </div>
+  <div class="featured_logo_images">
+    {% if section.settings.logo_image1 != blank %}
+      <img src="{{ section.settings.logo_image1 | img_url: '1048x'}}">
+    {% endif %}
+    {% if section.settings.logo_image2 != blank %}
+      <img src="{{ section.settings.logo_image2 | img_url: '1048x'}}">
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Custom Richtext",
+    "settings": [
+   {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+   },
+   {
+      "type": "select",
+      "id": "subtitle_allignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Subtitle Alignment"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Text"
+    },
+	{
+      "type": "image_picker",
+      "id": "icon1",
+      "label": "Icon 1"
+    },
+	{
+      "type": "text",
+      "id": "icontext1",
+      "label": "Icon text 1"
+    },
+	{
+      "type": "image_picker",
+      "id": "icon2",
+      "label": "Icon 2"
+    },
+	{
+      "type": "text",
+      "id": "icontext2",
+      "label": "Icon text 2"
+    },
+	{
+      "type": "image_picker",
+      "id": "icon3",
+      "label": "Icon 3"
+    },
+	{
+      "type": "text",
+      "id": "icontext3",
+      "label": "Icon text 3"
+    },
+	{
+      "type": "image_picker",
+      "id": "icon4",
+      "label": "Icon 4"
+    },
+	{
+      "type": "text",
+      "id": "icontext4",
+      "label": "Icon text 4"
+    },
+	{
+      "type": "richtext",
+      "id": "text",
+      "label": "Content"
+    },
+    {
+      "type": "select",
+      "id": "text_allignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Text Alignment"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_allignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Heading Alignment"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image1",
+      "label": "Logo Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image2",
+      "label": "Logo Image 2"
+    }
+],
+"presets" : [
+   {
+    "name" : "Custom Richtext"
+   }
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

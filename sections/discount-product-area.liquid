@@ -1,0 +1,83 @@
+<!-- discount-product-area -->
+<section class="discount-product-area gray-bg">
+  <div class="container">
+    {% if section.settings.title1 != blank %}
+    <h2 class="title center mb-30">{{ section.settings.title1 }}</h2>
+    {% endif %}
+    <div class="row justify-content-center">
+      {% for block in section.blocks %}
+      <div class="col-xl-4 col-lg-6 col-md-8 col-sm-10">
+        <div class="discount-product-item mb-30">
+          <div class="thumb">
+            <img src="{{block.settings.image | img_url:'600x'}}" alt="">
+          </div>
+          <div class="content">
+            <div class="cont_left">
+              <span>{{ block.settings.subtitle}}</span>
+              <h4><a href="#">{{ block.settings.title}}</a></h4>
+              <a href="{{ block.settings.btn_link}}" class="btn gradient-btn">{{ block.settings.btn}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- discount-product-area-end -->
+{% schema %}
+  {
+    "name": "Discount-product-area",
+    "settings": [
+        {
+          "type": "text",
+          "id": "title1",
+          "label": "Section Heading"
+        }
+	],
+	"blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        },
+		{
+          "type": "text",
+          "id": "subtitle",
+          "label": "Sub Title"
+        },
+		{
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "btn",
+          "label": "Button"
+        },
+		{
+          "type": "text",
+          "id": "btn_link",
+          "label": "Button link"
+        }
+	  ]
+	}
+],
+	"presets": [
+       {
+        "name": "Discount-product-area"
+       }
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

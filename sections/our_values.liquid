@@ -1,0 +1,83 @@
+<style>
+.our_values {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+  .value_icons_txt {
+    padding: 50px;
+    display: flex;
+    align-items: center;
+}
+  .icon_image {
+    margin-right: 20px;
+}
+  .icon_image svg {
+    width: 80px;
+    height: 80px;
+}
+</style>
+<div class="our_values">
+  {% for block in section.blocks %}
+  <div class="value_icons_txt" style="background: {{ block.settings.bg}}">
+    <div class="icon_image">
+      {%  if block.settings.image != blank %}
+       <img src="{{block.settings.image | img_url: '1048x'}}">
+      {% else %}
+      {{ block.settings.svg_icon }}
+      {% endif %}
+    </div>
+    <div class="icon_txt">
+      {% if block.settings.text !=blank %}
+        <p>{{ block.settings.text}}</p>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Our Values",
+    "settings": [],
+"blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+     {
+        "type": "color",
+        "id": "bg",
+        "label": "Icon Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Icon Image"
+      },
+      {
+        "type": "text",
+        "id": "svg_icon",
+        "label": "Svg Image"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Icon Image"
+      }
+    ]
+   }
+],
+"presets" : [
+   {
+    "name" : "Our Values"
+    }
+   ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
